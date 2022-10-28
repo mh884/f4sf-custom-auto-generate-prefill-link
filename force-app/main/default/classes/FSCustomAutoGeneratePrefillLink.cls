@@ -49,7 +49,7 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
     } catch (Exception ex) {
       System.debug(
         LoggingLevel.ERROR,
-        '[FSCustomDynamicPrefill] Error unexpected! Error to generate Prefill Link for Object[' +
+        '[FSCustomAutoGeneratePrefillLink] Error unexpected! Error to generate Prefill Link for Object[' +
         this.currentObjectAPIName +
         '] ExMessage[' +
         ex.getMessage() +
@@ -59,7 +59,10 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
   }
 
   private void log(string pText) {
-    System.debug(LoggingLevel.DEBUG, '[FSCustomDynamicPrefill]' + pText);
+    System.debug(
+      LoggingLevel.DEBUG,
+      '[FSCustomAutoGeneratePrefillLink]' + pText
+    );
   }
 
   private void loadPrefillConfig() {
