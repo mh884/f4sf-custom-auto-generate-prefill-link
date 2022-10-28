@@ -20,5 +20,5 @@ trigger FSCustomAutoGeneratePrefillLink_Account_Trigger on Account(
   }
 
   Set<Id> listOfIds = Trigger.newMap.keySet();
-  new FSCustomDynamicPrefill('Account', listOfIds).executeDynamicPrefill();
+  new FSCustomAutoGeneratePrefillLink('Account', listOfIds).executeDynamicPrefill();
 }
