@@ -88,4 +88,5 @@ This code will get the Forms from the Custom Settings, and call Formstack For Sa
 6. You should be responsible for give maintenance on this code.
 7. This code is just to help customers when they have too many triggers.
 8. This is not an end solution for Formstack for Salesforce. Formstack for Salesforce will have a different solution for this.
+9. We also have an option to generate the links using the [Salesforce Flow](https://sfapphelp.formstack.com/s/article/Generate-Forms-for-Salesforce-Prefill-URLs-using-Flow), which we would recommend to use over this code solution.
 
