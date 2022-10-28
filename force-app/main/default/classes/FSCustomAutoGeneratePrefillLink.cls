@@ -2,6 +2,7 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
   private string currentObjectAPIName;
   private Map<string, TriggerPrefillConfig> listOfPrefillConfig;
   private List<Id> listOfNewIds;
+  public string errorMessage { get; private set; }
 
   public FSCustomAutoGeneratePrefillLink(
     string pCurrentObjectApiName,
@@ -10,6 +11,7 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
     this.currentObjectAPIName = pCurrentObjectApiName;
     this.listOfPrefillConfig = new Map<string, TriggerPrefillConfig>();
     this.listOfNewIds = new List<Id>(pListOfIds);
+    this.errorMessage = '';
   }
 
   public void executeDynamicPrefill() {
@@ -47,7 +49,9 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
       }
     } catch (CustomPrefillException ex) {
       log(ex.getMessage());
+      this.errorMessage = ex.getMessage();
     } catch (Exception ex) {
+      this.errorMessage = ex.getMessage();
       System.debug(
         LoggingLevel.ERROR,
         '[FSCustomAutoGeneratePrefillLink] Error unexpected! Error to generate Prefill Link for Object[' +
