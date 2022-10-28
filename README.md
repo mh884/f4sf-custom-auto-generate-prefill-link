@@ -1,4 +1,4 @@
-# Custom Dynamic Prefill
+# :bulb: Custom Dynamic Prefill
 
 Currently, Formstack for Salesforce creates a trigger for each form when we enabled the Auto-Generate Prefill link.
 
@@ -24,7 +24,7 @@ Class Name: FSCustomAutoGeneratePrefillLink
 This code will get the Forms from the Custom Settings, and call Formstack For Salesforce Code which will generate the link and update the record for us.
 
 
-## Steps to deploy this code into Scratch Org/Sandbox
+## :computer: Steps to deploy this code into Scratch Org/Sandbox
 
 
 ### 1. Make sure you have an org setup in VSCode.
@@ -75,9 +75,10 @@ This code will get the Forms from the Custom Settings, and call Formstack For Sa
 4.4. That is it! If you click on the link it should open the form and prefill the form.
 
 
-# Things to keep in mind
+# :mega: Things to keep in mind
 
 1. This solution is linked with the Form name, so if the user changes the name you have to change the configuration.
 1.1. You could change the code to use the Id instead of name, but that would fail when you test things in Sandbox and Push your code to Production because the ID of the Form will change.
 2. The code coverage for the FSCustomAutoGeneratePrefillLink is 85%, and it is not well done because we are not testing if we are actually updating the records.
+3. This was tested only with a few records.
 
