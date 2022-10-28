@@ -36,7 +36,8 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
           this.listOfNewIds.size() +
           ']'
         );
-        FastFormsUtilities.DoUpdateRecords(
+
+        VisualAntidote.FastFormsUtilities.DoUpdateRecords(
           this.currentObjectAPIName,
           fiPrefillConfig.urlFieldAPIName,
           fiPrefillConfig.formId,
@@ -71,7 +72,7 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
   }
 
   private void mapFormsWithPrefillConfig() {
-    List<Previous_Form__c> listOfForms = getListOfFormDraftFormIdsByListOfFormNames(
+    List<VisualAntidote__Previous_Form__c> listOfForms = getListOfFormDraftFormIdsByListOfFormNames(
       this.listOfPrefillConfig.keySet()
     );
     if (listOfForms.size() == 0) {
@@ -80,19 +81,19 @@ public with sharing class FSCustomAutoGeneratePrefillLink {
       );
     }
 
-    for (Previous_Form__c fiForm : listOfForms) {
+    for (VisualAntidote__Previous_Form__c fiForm : listOfForms) {
       TriggerPrefillConfig triggerConfig = listOfPrefillConfig.get(fiForm.Name);
       triggerConfig.formId = fiForm.Id;
     }
   }
 
-  private List<Previous_Form__c> getListOfFormDraftFormIdsByListOfFormNames(
+  private List<VisualAntidote__Previous_Form__c> getListOfFormDraftFormIdsByListOfFormNames(
     Set<string> pListOfFormNames
   ) {
     return [
       SELECT ID, Name
-      FROM Previous_Form__c
-      WHERE Draft_Form__c = NULL AND Name IN :pListOfFormNames
+      FROM VisualAntidote__Previous_Form__c
+      WHERE VisualAntidote__Draft_Form__c = NULL AND Name IN :pListOfFormNames
     ];
   }
 
