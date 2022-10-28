@@ -12,6 +12,8 @@ We would create one trigger for the object that you want to set the links.
 
 Example in this code: FSCustomAutoGeneratePrefillLink_Account_Trigger
 
+You should change the object as your need. This is only one example which is for Account Object.
+
 ### 2. Custom Settings
   
 Custom Settings Name: FSTriggerConfig
@@ -81,4 +83,9 @@ This code will get the Forms from the Custom Settings, and call Formstack For Sa
 1.1. You could change the code to use the Id instead of name, but that would fail when you test things in Sandbox and Push your code to Production because the ID of the Form will change.
 2. The code coverage for the FSCustomAutoGeneratePrefillLink is 85%, and it is not well done because we are not testing if we are actually updating the records.
 3. This was tested only with a few records.
+4. There is a Trigger on this code already for Account. This is just an example, you should apply that to your object.
+5. You should Test your code and read the code that we have here.
+6. You should be responsible for give maintenance on this code.
+7. This code is just to help customers when they have too many triggers.
+8. This is not an end solution for Formstack for Salesforce. Formstack for Salesforce will have a different solution for this.
 
