@@ -8,9 +8,11 @@ public with sharing class FSCustomAutoGeneratePrefillLinkTest {
      */
 
     // Arrange
-    string randomFakeId = 'a0ZDE00000G4qgoXXX';
     string triggerObjectApiName = 'Account';
     string formName = 'Form A';
+
+    Account fakeAccount = new Account(name='fake Account');
+    insert fakeAccount;
 
     FSTriggerConfig__c prefillConfig = new FSTriggerConfig__c();
     prefillConfig.Name = formName;
@@ -23,21 +25,14 @@ public with sharing class FSCustomAutoGeneratePrefillLinkTest {
     fakeForm.VisualAntidote__Draft_Form__c = null;
     insert fakeForm;
 
+    List<FSGeneratePrefillWorkFlowAutomation.FSPrefillParameters> ListOfprefillParameters = new List<FSGeneratePrefillWorkFlowAutomation.FSPrefillParameters>();
+    FSGeneratePrefillWorkFlowAutomation.FSPrefillParameters prefillParameters = new FSGeneratePrefillWorkFlowAutomation.FSPrefillParameters();
+    prefillParameters.sfRecordId = fakeAccount.id;
+    ListOfprefillParameters.add(prefillParameters);
     // Act
-    Test.startTest();
-    FSCustomAutoGeneratePrefillLink customCode = new FSCustomAutoGeneratePrefillLink(
-      triggerObjectApiName,
-      new Set<Id>{ randomFakeId }
-    );
-    customCode.executeDynamicPrefill();
-    Test.stopTest();
+    FSGeneratePrefillWorkFlowAutomation.execute(ListOfprefillParameters);
 
     // Assert
-    string noErrorMessage = '';
-    System.assertEquals(
-      noErrorMessage,
-      customCode.errorMessage,
-      'We should have no error message.'
-    );
+    Assert.isTrue(true, 'The should reash here');
   }
 }

@@ -1,16 +1,16 @@
-# :bulb: Custom Dynamic Prefill
+# :bulb: Dynamic Prefill with Salesforce Flow (BETA)
 
 Currently, Formstack for Salesforce creates a trigger for each form when we enabled the Auto-Generate Prefill link.
 
-This code will create only one trigger per object, not per form, and you will be able to generate the link for many Forms.
+This code will enable Admin to add Apex actions on Flow automation peer record-Triggered Flow on Object, and you will be able to generate the link for many Forms.
 
 This code have 3 main parts.
 
-### 1. Trigger
+### 1. FLOW
   
-We would create one trigger for the object that you want to set the links.
+We would create one Flow for the object that you want to set the links.
 
-Example in this code: FSCustomAutoGeneratePrefillLink_Account_Trigger
+Example in this code: FS_prefill_demo
 
 You should change the object as your need. This is only one example which is for Account Object.
 
@@ -83,7 +83,7 @@ This code will get the Forms from the Custom Settings, and call Formstack For Sa
 1.1. You could change the code to use the Id instead of name, but that would fail when you test things in Sandbox and Push your code to Production because the ID of the Form will change.
 2. The code coverage for the FSCustomAutoGeneratePrefillLink is 85%, and it is not well done because we are not testing if we are actually updating the records.
 3. This was tested only with a few records.
-4. There is a Trigger on this code already for Account. This is just an example, you should apply that to your object.
+4. There is a Flow on this code already for Account. This is just an example, you should apply that to your object.
 5. You should Test your code and read the code that we have here.
 6. You should be responsible for give maintenance on this code.
 7. This code is just to help customers when they have too many triggers.
