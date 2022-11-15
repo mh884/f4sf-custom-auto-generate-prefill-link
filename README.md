@@ -25,6 +25,9 @@ Class Name: FSCustomAutoGeneratePrefillLink
 
 This code will get the Forms from the Custom Settings, and call Formstack For Salesforce Code which will generate the link and update the record for us.
 
+## :salesforce: install unmaged package
+[unmanged package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t8W000003FMx2)
+
 
 ## :computer: Steps to deploy this code into Scratch Org/Sandbox
 
